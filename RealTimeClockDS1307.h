@@ -59,9 +59,9 @@ class RealTimeClockDS1307
     void sqwEnable(byte);//enable the square wave with the specified frequency
     void sqwDisable(boolean);//disable the square wave, setting output either high or low
     void writeData(byte, byte);//write a single value to a register
-//    void writeData(byte, byte *, byte);//write several values consecutively
+    void writeData(byte, void *, int);//write several values consecutively
     byte readData(byte);//read a single value from a register
-//    void readData(byte, byte *, byte);//read several values into a buffer
+    void readData(byte, void *, int);//read several values into a buffer
 
     int getHours();
     int getMinutes();

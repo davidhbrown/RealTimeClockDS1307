@@ -19,13 +19,11 @@ pin 13).
 
 Changelog:
 
+Version 0.91   -- added multi-byte read/write
 Version 0.9 RC -- initial release
 
 Future:
  - web page documentation
- - methods to to read/write multiple bytes.
-
-
   
   RealTimeClockDS1307 - library to control a DS1307 RTC module
   Copyright (c) 2011 David H. Brown. All rights reserved

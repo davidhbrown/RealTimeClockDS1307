@@ -120,6 +120,19 @@ void RealTimeClockDS1307::writeData(byte regNo, byte value)
    Wire.endTransmission();
 }
 
+void RealTimeClockDS1307::writeData(byte regNo, void * source, int length)
+{
+  char * p = (char*) source;
+  if(regNo > 0x3F || length > 0x3F) { return; }
+  Wire.beginTransmission(DS1307_I2C_ADDRESS);
+  Wire.send(regNo);
+  for(int i=0; i<length; i++) {
+    Wire.send(*p);
+    p++;
+  }
+  Wire.endTransmission();
+}
+
 byte RealTimeClockDS1307::readData(byte regNo)
 {
   if(regNo > 0x3F) { return 0xff; }
@@ -129,6 +142,21 @@ byte RealTimeClockDS1307::readData(byte regNo)
   Wire.requestFrom(DS1307_I2C_ADDRESS, 1);
   return Wire.receive();
 }
+
+void RealTimeClockDS1307::readData(byte regNo, void * dest, int length)
+{
+  char * p = (char*) dest;
+  if(regNo > 0x3F || length > 0x3F) { return; }
+  Wire.beginTransmission(DS1307_I2C_ADDRESS);
+  Wire.send(regNo);
+  Wire.endTransmission();
+  Wire.requestFrom(DS1307_I2C_ADDRESS, length);
+  for(int i=0; i<length; i++) {
+    *p=Wire.receive();
+    p++;
+  }
+}
+
 
 void RealTimeClockDS1307::sqwEnable(byte frequency)
 {
