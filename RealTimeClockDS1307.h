@@ -1,6 +1,8 @@
 /*
   RealTimeClockDS1307 - library to control a DS1307 RTC module
   Copyright (c) 2011 David H. Brown. All rights reserved
+
+  v0.92 Updated for Arduino 1.00; not re-tested on earlier versions
   
   Much thanks to John Waters and Maurice Ribble for their
   earlier and very helpful work (even if I didn't wind up
@@ -25,8 +27,15 @@
 
 #ifndef RealTimeClockDS1307_h
 #define RealTimeClockDS1307_h
+
+  #if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+  #else
+  #include "WProgram.h"
+  #endif
+
 //#include <HardwareSerial.h>
-#include <WConstants.h> //need/want 'boolean' and 'byte' types used by Arduino
+//#include <WConstants.h> //need/want 'boolean' and 'byte' types used by Arduino
 //#undef round is required to avoid a compile-time
 //"expected unqualified-id before 'double'" error in math.h
 //see: http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl?num=1247924528/3
@@ -77,6 +86,7 @@ class RealTimeClockDS1307
     // YY-MM-DD HH:II:SS   ... plus "A" or "P" if in 12-hour mode
     //and of course a NULL terminator. So, [18] for 24h or [19] for 12h
     void getFormatted(char *);//see comment above
+    void getFormatted2k(char *);//as getFormatted, but with "20" prepended
 
     //must also call setClock() after any of these
     //before next readClock(). Note that invalid dates are not
@@ -102,5 +112,7 @@ class RealTimeClockDS1307
     static const byte SQW_8kHz=0x02;//actually 8.192kHz
     static const byte SQW_32kHz=0x03;//actually 32.768kHz
 };
+
 extern RealTimeClockDS1307 RTC;
+
 #endif

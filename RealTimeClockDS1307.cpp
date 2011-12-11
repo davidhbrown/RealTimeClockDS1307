@@ -1,6 +1,8 @@
 /*
   RealTimeClockDS1307 - library to control a DS1307 RTC module
   Copyright (c) 2011 David H. Brown. All rights reserved
+
+  v0.92 Updated for Arduino 1.00; not re-tested on earlier versions
   
   Much thanks to John Waters and Maurice Ribble for their
   earlier and very helpful work (even if I didn't wind up
@@ -59,18 +61,18 @@ void RealTimeClockDS1307::readClock()
 {
   // Reset the register pointer
   Wire.beginTransmission(DS1307_I2C_ADDRESS);
-  Wire.send(0x00);
+  Wire.write((uint8_t) 0x00);
   Wire.endTransmission();
  
   Wire.requestFrom(DS1307_I2C_ADDRESS, 8);
-  _reg0_sec = Wire.receive();
-  _reg1_min = Wire.receive();
-  _reg2_hour = Wire.receive();
-  _reg3_day = Wire.receive();
-  _reg4_date = Wire.receive();
-  _reg5_month = Wire.receive();
-  _reg6_year = Wire.receive();
-  _reg7_sqw = Wire.receive();
+  _reg0_sec = Wire.read();
+  _reg1_min = Wire.read();
+  _reg2_hour = Wire.read();
+  _reg3_day = Wire.read();
+  _reg4_date = Wire.read();
+  _reg5_month = Wire.read();
+  _reg6_year = Wire.read();
+  _reg7_sqw = Wire.read();
 }
 
 void RealTimeClockDS1307::setClock()
@@ -81,13 +83,13 @@ void RealTimeClockDS1307::setClock()
   writeData(0,0x80);
   //now, we'll write everything *except* the second
   Wire.beginTransmission(DS1307_I2C_ADDRESS);
-  Wire.send(0x01);
-  Wire.send(_reg1_min);
-  Wire.send(_reg2_hour);
-  Wire.send(_reg3_day);
-  Wire.send(_reg4_date);
-  Wire.send(_reg5_month);
-  Wire.send(_reg6_year);
+  Wire.write((uint8_t) 0x01);
+  Wire.write(_reg1_min);
+  Wire.write(_reg2_hour);
+  Wire.write(_reg3_day);
+  Wire.write(_reg4_date);
+  Wire.write(_reg5_month);
+  Wire.write(_reg6_year);
   Wire.endTransmission();
   //now, we'll write the seconds; we didn't have to keep
   //track of whether the clock was already running, because
@@ -115,8 +117,8 @@ void RealTimeClockDS1307::writeData(byte regNo, byte value)
 {
   if(regNo > 0x3F) { return; }
    Wire.beginTransmission(DS1307_I2C_ADDRESS);
-   Wire.send(regNo);
-   Wire.send(value);
+   Wire.write(regNo);
+   Wire.write(value);
    Wire.endTransmission();
 }
 
@@ -125,9 +127,9 @@ void RealTimeClockDS1307::writeData(byte regNo, void * source, int length)
   char * p = (char*) source;
   if(regNo > 0x3F || length > 0x3F) { return; }
   Wire.beginTransmission(DS1307_I2C_ADDRESS);
-  Wire.send(regNo);
+  Wire.write(regNo);
   for(int i=0; i<length; i++) {
-    Wire.send(*p);
+    Wire.write(*p);
     p++;
   }
   Wire.endTransmission();
@@ -137,10 +139,10 @@ byte RealTimeClockDS1307::readData(byte regNo)
 {
   if(regNo > 0x3F) { return 0xff; }
   Wire.beginTransmission(DS1307_I2C_ADDRESS);
-  Wire.send(regNo);
+  Wire.write(regNo);
   Wire.endTransmission();
   Wire.requestFrom(DS1307_I2C_ADDRESS, 1);
-  return Wire.receive();
+  return Wire.read();
 }
 
 void RealTimeClockDS1307::readData(byte regNo, void * dest, int length)
@@ -148,11 +150,11 @@ void RealTimeClockDS1307::readData(byte regNo, void * dest, int length)
   char * p = (char*) dest;
   if(regNo > 0x3F || length > 0x3F) { return; }
   Wire.beginTransmission(DS1307_I2C_ADDRESS);
-  Wire.send(regNo);
+  Wire.write(regNo);
   Wire.endTransmission();
   Wire.requestFrom(DS1307_I2C_ADDRESS, length);
   for(int i=0; i<length; i++) {
-    *p=Wire.receive();
+    *p=Wire.read();
     p++;
   }
 }
@@ -284,6 +286,13 @@ void RealTimeClockDS1307::getFormatted(char * buffer)
     }
   }
   buffer[i++]=0x00;
+}
+
+void RealTimeClockDS1307::getFormatted2k(char * buffer)
+{
+  buffer[0]='2';
+  buffer[1]='0';
+  getFormatted(&buffer[2]);
 }
 
 /**** SETTERS *****/
