@@ -19,11 +19,13 @@ pin 13).
 
 Changelog:
 
-Version 0.92 RC-- Updated for Arduino 1.00; testing with
-                  Andreas Giemza (hurik)
-              
-Version 0.91   -- added multi-byte read/write
-Version 0.9 RC -- initial release
+Version 0.93    -- added keywords.txt for syntax highlighting
+		   by Andreas Giemza (hurik)
+
+Version 0.92 RC -- Updated for Arduino 1.00; testing with
+                   Andreas Giemza (hurik)
+Version 0.91    -- added multi-byte read/write
+Version 0.9 RC  -- initial release
 
 Future:
  - web page documentation

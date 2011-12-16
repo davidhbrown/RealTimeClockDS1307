@@ -1,0 +1,55 @@
+#########################################
+# Syntax Coloring Map RealTimeClockDS1307
+#########################################
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+RTC	KEYWORD2
+
+#########################################
+# Methods and Functions (KEYWORD2)
+#########################################
+readClock	KEYWORD2
+setClock	KEYWORD2
+stop	KEYWORD2
+start	KEYWORD2
+sqwEnable	KEYWORD2
+sqwDisable	KEYWORD2
+writeData	KEYWORD2
+readData	KEYWORD2
+
+getHours	KEYWORD2
+getMinutes	KEYWORD2
+getSeconds	KEYWORD2
+getYear	KEYWORD2
+getMonth	KEYWORD2
+getDate	KEYWORD2
+getDayOfWeek	KEYWORD2
+is12hour	KEYWORD2
+isPM	KEYWORD2
+isStopped	KEYWORD2
+getFormatted	KEYWORD2
+getFormatted2k	KEYWORD2
+
+setSeconds	KEYWORD2
+setMinutes	KEYWORD2
+setHours	KEYWORD2
+setAM	KEYWORD2
+setPM	KEYWORD2
+set24h	KEYWORD2
+switchTo24h	KEYWORD2
+switchTo12h	KEYWORD2
+setDayOfWeek	KEYWORD2
+setDate	KEYWORD2
+setMonth	KEYWORD2
+setYear	KEYWORD2
+
+#########################################
+# Constants (LITERAL1)
+#########################################
+SQW_1Hz	LITERAL1
+SQW_4kHz	LITERAL1
+SQW_8kHz	LITERAL1
+SQW_32kHz	LITERAL1
