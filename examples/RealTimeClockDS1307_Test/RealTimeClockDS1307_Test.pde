@@ -185,7 +185,7 @@ void processCommand() {
     case 'D':
     case 'd':
     in=SerialReadPosInt();
-    RTC.setDate(in);
+    RTC.setDay(in);
     RTC.setClock();
     Serial.print("Setting date to ");
     Serial.println(in);
@@ -310,5 +310,3 @@ int SerialReadPosInt() {
   }
   return i;
 }
-    
-

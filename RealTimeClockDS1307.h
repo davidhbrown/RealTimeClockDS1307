@@ -102,7 +102,7 @@ class RealTimeClockDS1307
     void switchTo24h();//returns immediately if already 24h
     void switchTo12h();//returns immediately if already 12h
     void setDayOfWeek(int);//incremented at midnight; not set by date (no fixed meaning)
-    void setDate(int);//allows 1-31 for *all* months.
+    void setDay(int);//allows 1-31 for *all* months.
     void setMonth(int);
     void setYear(int);
 

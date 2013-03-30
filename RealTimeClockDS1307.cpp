@@ -392,7 +392,7 @@ void RealTimeClockDS1307::setDayOfWeek(int d)
   }
 }
 
-void RealTimeClockDS1307::setDate(int d)
+void RealTimeClockDS1307::setDay(int d)
 {
   if (d > 0 && d < 32)
   {
