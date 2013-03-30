@@ -77,7 +77,7 @@ class RealTimeClockDS1307
     int getSeconds();
     int getYear();
     int getMonth();
-    int getDate();
+    int getDay();
     int getDayOfWeek();
     boolean is12hour();
     boolean isPM();
