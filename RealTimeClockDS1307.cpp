@@ -242,7 +242,7 @@ int RealTimeClockDS1307::getMonth()
   //could mask with 0x1f but shouldn't need to
   return bcdToDec(_reg5_month);
 }
-int RealTimeClockDS1307::getDate()
+int RealTimeClockDS1307::getDay()
 {
   //could mask with 0x3f but shouldn't need to
   return bcdToDec(_reg4_date);
