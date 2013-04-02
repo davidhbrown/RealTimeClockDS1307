@@ -2,10 +2,10 @@ My goal in creating yet another DS1307 library was to provide
 easy access to some of the other functions I needed from the chip,
 specifically its square wave output and its battery-backed RAM.
 
-## Documentation:
+## Documentation
 @todo Mostly comments in `RealTimeClockDS1307.h`
 
-## Examples (in /examples):
+## Examples (in /examples folder)
 
 - `RealTimeClockDS1307_Test.pde` allow you to turn the clock on/off,
 set date/time, set 12/24h, [de]activate the square wave, and
@@ -17,7 +17,7 @@ is an optional resistor+LED to show the square wave (note that it's
 an open drain, so you hook up to it rather differently than, say, 
 pin 13).
 
-## Changelog:
+## Changelog
 
 Version 0.94    -- changed getDate() to getDay() and
                    setDate() to setDay() and updated
@@ -31,7 +31,7 @@ Version 0.92 RC -- Updated for Arduino 1.00; testing with
 Version 0.91    -- added multi-byte read/write
 Version 0.9 RC  -- initial release
 
-## Future:
+## Future
  - web page documentation
 
 ## Credits
