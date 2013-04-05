@@ -25,6 +25,7 @@ getMinutes	KEYWORD2
 getSeconds	KEYWORD2
 getYear	KEYWORD2
 getMonth	KEYWORD2
+getDate	KEYWORD2
 getDay	KEYWORD2
 getDayOfWeek	KEYWORD2
 is12hour	KEYWORD2
@@ -42,6 +43,7 @@ set24h	KEYWORD2
 switchTo24h	KEYWORD2
 switchTo12h	KEYWORD2
 setDayOfWeek	KEYWORD2
+setDate	KEYWORD2
 setDay	KEYWORD2
 setMonth	KEYWORD2
 setYear	KEYWORD2

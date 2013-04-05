@@ -242,10 +242,14 @@ int RealTimeClockDS1307::getMonth()
   //could mask with 0x1f but shouldn't need to
   return bcdToDec(_reg5_month);
 }
-int RealTimeClockDS1307::getDay()
+int RealTimeClockDS1307::getDate()
 {
   //could mask with 0x3f but shouldn't need to
   return bcdToDec(_reg4_date);
+}
+int RealTimeClockDS1307::getDay()
+{
+  return getDate();
 }
 int RealTimeClockDS1307::getDayOfWeek()
 {
@@ -392,13 +396,18 @@ void RealTimeClockDS1307::setDayOfWeek(int d)
   }
 }
 
-void RealTimeClockDS1307::setDay(int d)
+void RealTimeClockDS1307::setDate(int d)
 {
   if (d > 0 && d < 32)
   {
     _reg4_date = decToBcd(d);
   }
 }
+void RealTimeClockDS1307::setDay(int d)
+{
+  setDate(d);
+}
+
 void RealTimeClockDS1307::setMonth(int m)
 {
   if (m > 0 && m < 13)
