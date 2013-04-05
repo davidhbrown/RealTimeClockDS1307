@@ -19,21 +19,26 @@ pin 13).
 
 ## Changelog
 
-Version 0.95    -- Reverse renaming of getDate() and setDate(), now
-                   getDay() is calling getDate() and setDay() is 
-                   calling setDate() & Readme improvements
-                   by Sudar & Andreas Giemza (hurik)
+##### Version 0.95
+* Reverse renaming of getDate() and setDate(), now getDay() is calling getDate() and setDay() is calling setDate()
+* Readme improvements
 
-Version 0.94    -- changed getDate() to getDay() and
-                   setDate() to setDay() and updated
-                   keywords.txt and the example
-                   by Sudar & Andreas Giemza (hurik)
-Version 0.93    -- added keywords.txt for syntax highlighting
-                   by Andreas Giemza (hurik)
-Version 0.92 RC -- Updated for Arduino 1.00; testing with
-                   Andreas Giemza (hurik)
-Version 0.91    -- added multi-byte read/write
-Version 0.9 RC  -- initial release
+##### Version 0.94
+* changed getDate() to getDay() and setDate() to setDay()
+* updated keywords.txt
+* updated example
+
+##### Version 0.93
+* added keywords.txt for syntax highlighting
+
+##### Version 0.92 RC
+* Updated for Arduino 1.00; testing with Andreas Giemza (hurik)
+
+##### Version 0.91
+* added multi-byte read/write
+
+##### Version 0.9 RC
+* initial release
 
 ## Future
  - web page documentation
