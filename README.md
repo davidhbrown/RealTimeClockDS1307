@@ -1,3 +1,11 @@
+## Obsolete
+
+Please know that I created this class for a one-off project before
+I really knew how to use Git or how to support my code as an
+open-source contribution. Consequently, other users quite appropriately
+forked it and you will find more up-to-date (i.e., actually usable)
+equivalents elsewhere.
+
 My goal in creating yet another DS1307 library was to provide
 easy access to some of the other functions I needed from the chip,
 specifically its square wave output and its battery-backed RAM.
